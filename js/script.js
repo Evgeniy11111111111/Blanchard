@@ -16,6 +16,13 @@ window.addEventListener('DOMContentLoaded', function() {
   })
 })
 
+document.querySelectorAll('.header__item-link').forEach(el => {
+  el.addEventListener('click', function(){
+    document.querySelector('#menu').classList.remove('is-active')
+      document.body.style.overflow = "auto";
+  })
+})
+
 // раскрытие поиска
 
 document.querySelector(".header__search-form-btn__open").addEventListener("click", function() {
@@ -306,6 +313,17 @@ const validation = new JustValidate('.contacts__form', {
         const phone = selector.inputmask.unmaskedvalue()
         return Number(phone) && phone.length === 10
       },
+    },
+  },
+  masseges: {
+    name: {
+      required: "Недопустимый формат",
+      minLength: "Недопустимый формат",
+      maxLength: "Недопустимый формат",
+    },
+    tel: {
+      required: "Недопустимый формат",
+      function: "Недопустимый формат",
     },
   },
 });
