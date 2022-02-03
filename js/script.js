@@ -1,27 +1,25 @@
 // Бургер
 
-window.addEventListener('DOMContentLoaded', function() {
-  document.querySelector('#burger').addEventListener('click', function() {
-    document.querySelector('#menu').classList.add('is-active')
-      document.body.style.overflow = "hidden";
-  })
-})
+$(document).ready(function() {
+	$('.burger').click(function(event) {
+		$('.burger,.header__nav').addClass('active');
+		$('body').addClass('lock');
+	});
+});
 
-// Закрытие бургера
+$(document).ready(function() {
+	$('.menu-close').click(function(event) {
+		$('.burger,.header__nav').removeClass('active');
+		$('body').removeClass('lock');
+	});
+});
 
-window.addEventListener('DOMContentLoaded', function() {
-  document.querySelector('#menu-close').addEventListener('click', function() {
-    document.querySelector('#menu').classList.remove('is-active')
-      document.body.style.overflow = "auto";
-  })
-})
-
-document.querySelectorAll('.header__item-link').forEach(el => {
-  el.addEventListener('click', function(){
-    document.querySelector('#menu').classList.remove('is-active')
-      document.body.style.overflow = "auto";
-  })
-})
+$(document).ready(function() {
+	$('.header__item').click(function(event) {
+		$('.burger,.header__nav').removeClass('active');
+		$('body').removeClass('lock');
+	});
+});
 
 // раскрытие поиска
 
@@ -32,7 +30,7 @@ document.querySelector(".header__search-form-btn__open").addEventListener("click
 
 document.querySelector(".header__search-form-btn__close").addEventListener("click", function() {
   document.querySelector(".header__form-top").classList.remove("form__active");
-  this.classList.remove("active");
+    document.querySelector('.header__search-form-btn__open').classList.remove('active')
 })
 
 document.addEventListener("click", function(e) {
@@ -152,7 +150,7 @@ const swiper2 = new Swiper('.gallery__swiper', {
       spaceBetween: 34,
       slidesPerGroup: 2,
     },
-    1360: {
+    1199: {
       slidesPerView: 3,
       spaceBetween: 50,
       slidesPerGroup: 3,
@@ -172,6 +170,11 @@ for (let card of cardGallery) {
 }
 //закрываем модальное окно
 document.querySelector('.gallery__modal-btn-close').addEventListener('click', function(){
+  document.body.style.overflowY = 'auto';
+  document.querySelector('.gallery__modal').classList.remove('gallery__modal--is-active');
+});
+
+document.querySelector('.gallery__modal-back').addEventListener('click', function(){
   document.body.style.overflowY = 'auto';
   document.querySelector('.gallery__modal').classList.remove('gallery__modal--is-active');
 });
@@ -214,6 +217,7 @@ const swiper3 = new Swiper('.events__swiper', {
     el: '.events__swiper-pagination',
     type: 'bullets',
     clickable: true,
+    autoHeight: true,
   },
   breakpoints: {
     767: {
@@ -224,7 +228,7 @@ const swiper3 = new Swiper('.events__swiper', {
       slidesPerView: 3,
       spaceBetween: 27,
     },
-    1360: {
+    1199: {
       slidesPerView: 3,
       spaceBetween: 50,
       navigation: {
@@ -244,6 +248,7 @@ const tippy1 = new tippy('.project__tippi-1', {
   trigger: 'click',
   theme: 'light',
   maxWidth: 264,
+  offset: [10, 20],
 });
 
 const tippy2 = new tippy('.project__tippi-2', {
@@ -252,6 +257,7 @@ const tippy2 = new tippy('.project__tippi-2', {
   arrow: true,
   trigger: 'click',
   maxWidth: 264,
+  offset: [10, 20],
 });
 
 const tippy3 = new tippy('.project__tippi-3', {
@@ -260,6 +266,7 @@ const tippy3 = new tippy('.project__tippi-3', {
   arrow: true,
   trigger: 'click',
   maxWidth: 264,
+  offset: [10, 20],
 });
 
 // Project swiper
@@ -283,7 +290,7 @@ const swiper4 = new Swiper('.project__swiper', {
       spaceBetween: 50,
       slidesPerGroup: 2,
     },
-    1360: {
+    1199: {
       slidesPerView: 3,
       spaceBetween: 50,
       slidesPerGroup: 3,
@@ -315,7 +322,7 @@ const validation = new JustValidate('.contacts__form', {
       },
     },
   },
-  masseges: {
+  messages: {
     name: {
       required: "Недопустимый формат",
       minLength: "Недопустимый формат",
