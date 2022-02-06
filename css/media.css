@@ -301,9 +301,7 @@
 
   .gallery__modal-content {
     max-width: 594px;
-    height: 594px;
-    margin-top: -297px;
-    margin-left: -297px;
+    max-height: 594px;
   }
 
   .gallery__modal-img {
@@ -602,8 +600,6 @@
 
   .gallery__modal-content {
     max-width: 668px;
-    margin-top: -297px;
-    margin-left: -334px;
   }
 
   .gallery__modal-img {
@@ -938,9 +934,7 @@
   .gallery__modal-content {
     flex-direction: column;
     max-width: 290px;
-    height: 600px;
-    margin-top: -300px;
-    margin-left: -145px;
+    max-height: 600px;
   }
 
   .gallery__modal-img {
